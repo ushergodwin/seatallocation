@@ -1,0 +1,21 @@
+[Tue 18 Jan 2022 23:17:04] 	SQLSTATE[42000]: Syntax error or access violation: 1067 Invalid default value for 'reg_no'
+
+ ----------------------------------------------------------------------- 
+
+[Wed 19 Jan 2022 16:10:42] 	SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'course'
+
+ ----------------------------------------------------------------------- 
+
+[Wed 19 Jan 2022 22:46:36]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sup_name' in 'field list'[Wed 19 Jan 2022 22:48:09]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sup_name' in 'field list'[Thu 20 Jan 2022 23:49:08]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'end_timee' in 'field list'[Thu 20 Jan 2022 23:52:00]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'end_timee' in 'field list'[Thu 20 Jan 2022 23:56:37]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'end_timee' in 'field list'[Thu 20 Jan 2022 23:57:29]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'end_timee' in 'field list'[Fri 21 Jan 2022 00:06:48]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sup_name' in 'field list'[Mon 24 Jan 2022 22:56:12] 	SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'course'
+
+ ----------------------------------------------------------------------- 
+
+[Mon 24 Jan 2022 22:56:19] 	SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'occupied'
+
+ ----------------------------------------------------------------------- 
+
+[Mon 24 Jan 2022 22:56:19] 	SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'available'
+
+ ----------------------------------------------------------------------- 
+
+[Thu 03 Feb 2022 01:15:28]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'seat_id' in 'field list'[Thu 03 Feb 2022 01:16:26]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'seats.exam_id' in 'where clause'[Thu 03 Feb 2022 16:38:06]	SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'usher.godwin@yahoo.com' for key 'email'[Thu 03 Feb 2022 16:38:19]	SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '256754438448' for key 'phone_number'[Thu 03 Feb 2022 18:31:32]	SQLSTATE[42S22]: Column not found: 1054 Unknown column 'students.1800722816' in 'where clause'[Thu 03 Feb 2022 18:59:21]	SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') as name, password, account_type, email FROM users WHERE  users.email = 'bri...' at line 1[Thu 03 Feb 2022 22:17:16]	SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'students.secret = '2381c66086fbd785292e0f474aa2cd364fc29def'  AND students.st...' at line 1[Thu 03 Feb 2022 22:18:25]	SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'students.secret = '2381c66086fbd785292e0f474aa2cd364fc29def'  AND students.st...' at line 1[Thu 03 Feb 2022 22:18:30]	SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'students.secret = '2381c66086fbd785292e0f474aa2cd364fc29def'  AND students.st...' at line 1[Thu 03 Feb 2022 22:19:48]	SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'students.secret = '2381c66086fbd785292e0f474aa2cd364fc29def'  AND students.st...' at line 1
