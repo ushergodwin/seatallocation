@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-body">
-                <form action="<?php echo e(url('admin/dashboard//students/store')); ?>" method="POST" id="studentForm">
+                <form action="<?php echo e(url('dashboard//students/store')); ?>" method="POST" id="studentForm">
                     <?php echo csrf_field(); ?>
                    <div class="row">
                        <div class="col-lg-6">

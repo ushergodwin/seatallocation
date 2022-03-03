@@ -1,6 +1,7 @@
 <?php 
  namespace App\Controller\Auth; 
  use App\Controller\BaseController;
+use App\Models\PasswordReset;
 use App\Models\Student;
 use App\Models\User;
 use System\Http\Request\Request;
@@ -51,10 +52,14 @@ class Auth extends BaseController
         }
         $session_data['is_logged_in'] = true;
         session($session_data);
-        return response()->json(200, [
-            "message" => "Authenticated successfully",
-            "redirect" => url('dashboard')
-        ]);
+        if($this->isPasswordReset($username))
+        {
+            return response()->json(200, [
+                "message" => "Authenticated successfully",
+                "redirect" => url('dashboard')
+            ]);
+        }
+
     }
 
     /**
@@ -82,7 +87,7 @@ class Auth extends BaseController
     public function resetPassword(Request $request)
     {
         $c_password = sha1($request->post('c_password'));
-
+        $security_check = (int) $request->post('security_check', 202);
         $currentUser = session('account_type') === 'Student' ? Student::where('secret', $c_password)->where('st_no', session('st_no')) : User::where('email', session('email'))->where('password', $c_password);
 
         if(empty($currentUser->get()))
@@ -91,20 +96,41 @@ class Auth extends BaseController
         }
 
         $password = sha1($request->post('password'));
+        $username = "";
 
         if(session('account_type') === 'Student')
         {
-            $password_reset = Student::where('st_no', session('st_no'))->update(['secret' => $password]);
+            $username = session('st_no');
+            $password_reset = Student::where('st_no', $username)->update(['secret' => $password]);
         }else {
-            $password_reset = User::where('email', session('email'))->update(['password' => $password]);
+            $username = session('email');
+            $password_reset = User::where('email', $username)->update(['password' => $password]);
         }
 
         if(!$password_reset)
         {
             return response()->json(202, "Password reset failed");
         }
+        $reset = new PasswordReset(['email' => $username, 'token' => uniqid("_", true)]);
+        $reset->save();
+        return response()->json(200, 
+        [
+            "message" => "Password reset successfully! Login with your new password next time",
+            "isSecCheck" => $security_check
+        ]);
+    }
 
-        return response()->json(200, "Password reset successfully! Login with your new password next time");
+
+    protected function isPasswordReset($user_id)
+    {
+        if(empty(PasswordReset::where('email', $user_id)->get()))
+        {
+            return response()->json(200, [
+                "message" => "Security check required",
+                "redirect" => url('user/security/password/change')
+            ]);
+        }
+        return true;
     }
 
 

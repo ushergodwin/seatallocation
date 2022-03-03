@@ -2,6 +2,7 @@
  namespace App\Controller\Admin; 
  use App\Controller\BaseController;
 use App\Models\Supervisor;
+use App\Models\User;
 use System\Http\Request\Request;
 
 class SupervisorController extends BaseController 
@@ -29,21 +30,34 @@ class SupervisorController extends BaseController
 
     public function store(Request $request)
     {
-        $supervisor = $request->post('sup_name');
-        $supervisors_count = count($supervisor);
+        $fname = $request->post('fname');
+        $lname = $request->post('lname');
+        $title = $request->post('title');
+        $email = $request->post('email');
+        $phone = $request->post('phone');
 
-        $supervisors = [];
+        $fullName = "{$title} {$fname} {$lname}";
 
-        for($i = 0; $i < $supervisors_count; $i++)
-        {
-            $supervisors[] = array('sup_name' => $supervisor[$i]);
-        }
+        $supervisors = array(
+            'sup_name' => $fullName
+        );
+
+        $user_data = array(
+            'first_name' => $fname,
+            'last_name' => $lname,
+            'email' => $email,
+            'phone_number' => $phone,
+            'password' => password()->sha1($email)
+        );
 
         $supervisors = new Supervisor($supervisors); 
+
         if(!$supervisors->save())
         {
             return response()->send(202, alert()->danger("supervisors not saved! Please try again"));
         }
-        return response()->send(200, alert()->success("{$supervisors_count} supervisors saved successfully."));
+        $user = new User($user_data);
+        $user->save();
+        return response()->send(200, alert()->success("Supervisor, {$fullName} has been saved successfully."));
     }
  }

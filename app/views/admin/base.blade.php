@@ -344,6 +344,7 @@
             } );
         }
     </script>
+        <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     @yield('scripts')
     <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -358,6 +359,5 @@
     })();
     </script>
     <!--End of Tawk.to Script-->
-    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 </body>
 </html> 

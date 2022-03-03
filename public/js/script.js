@@ -105,6 +105,20 @@
                 if (response.status === 200) {
                     responseDiv.addClass('alert alert-success fade show')
                     responseDiv.html("<i class='fas fa-check-circle text-success'></i> " + response.message)
+                    if(response.isSecCheck === 200)
+                    {
+                        let i = 5
+
+                        const redirectCounter = setInterval(() => {
+                                document.getElementById('redirecting').innerHTML = `redirecting in 0${i}`
+                                i--
+                                if(i === 0)
+                                {
+                                    clearInterval(redirectCounter)
+                                    window.location.href = `${window.location.origin}/dashboard`
+                                }
+                        }, 1000)
+                    }
                 } else {
                     responseDiv.addClass('alert alert-danger fade show');
                     responseDiv.html("<i class='fas fa-exclamation-triangle text-warning'></i> " + response.message)

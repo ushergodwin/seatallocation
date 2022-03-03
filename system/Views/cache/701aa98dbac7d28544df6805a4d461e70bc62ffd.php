@@ -2,30 +2,54 @@
 
 <?php $__env->startSection('content'); ?>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card card-body">
-                <form action="<?php echo e(url('admin/dashboard/supervisors/store')); ?>" method="POST" id="roomForm">
+                <form action="<?php echo e(url('dashboard/supervisors/store')); ?>" method="POST" id="roomForm">
                     <?php echo csrf_field(); ?>
-                    <div class="row" id="roomsDiv">
-                        <div class="col-lg-12">
-                            <label for="sup_name" class="w-100">
-                                Supervisor's Name
-                                <input type="text" name="sup_name[]" class="form-control" autocomplete="off" required/>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="email" class="w-100">
+                                Email
+                                <input type="text" name="email" class="form-control" autocomplete="off" required/>
+                            </label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="phone" class="w-100">
+                                Phone Number
+                                <input type="text" name="phone" class="form-control" autocomplete="off" required/>
+                            </label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="title" class="w-100">
+                                Title
+                                <select name="title" class="form-control" required>
+                                    <option value="" selected>selecet</option>
+                                    <option value="Mr.">Mr.</option>
+                                    <option value="Mrs.">Mrs.</option>
+                                    <option value="Dr.">Dr.</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col-lg-5">
+                            <label for="fname" class="w-100">
+                                First Name
+                                <input type="text" name="fname" class="form-control" autocomplete="off" required/>
+                            </label>
+                        </div>
+                        <div class="col-lg-5">
+                            <label for="lname" class="w-100">
+                                Last Name
+                                <input type="text" name="lname" class="form-control" autocomplete="off" required/>
                             </label>
                         </div>
                     </div>
-
-                    <div class="d-flex justify-content-between">
-                        <div class="form-group">
-                            <button type="button" class="btn btn-outline-primary" id="roomAddBtn">
-                                <i class="fa fa-plus"></i>
-                                Add More Supervisor
-                            </button>
-                        </div>
+                    <div id="roomsDiv"> </div>
+                    <span class="text-muted">The default password is the supervisor's email address</span>
+                    <div class="d-flex justify-content-end">
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-success" id="roomFormBtn">
                                 <i class="fa fa-check"></i>
-                                Save Supervisors
+                                Save Supervisor
                             </button>
                         </div>
                     </div>
@@ -39,13 +63,6 @@
 
 <?php $__env->startSection('scripts'); ?>
     <script type="text/javascript">
-        jQuery(()=> {
-            $("#roomAddBtn").on('click', function(){
-
-                let content = '<div class="col-lg-12"><label for="sup_name" class="w-100">Another Supersor\'s Name<input type="text" name="sup_name[]" class="form-control" autocomplete="off" required/></label></div>'
-                $("#roomsDiv").append(content)
-            })
-        })
         request({form: 'roomForm', btn: 'roomFormBtn'})
     </script>
 <?php $__env->stopSection(); ?>

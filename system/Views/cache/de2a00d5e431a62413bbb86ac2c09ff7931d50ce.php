@@ -48,7 +48,7 @@
                 {
                     return alert("Please select an exam to view its sitting arrangement")
                 }
-                window.location.href = window.location.origin  + "/admin/dashboard/seats/exam/" + exam_id + '/arrangement'
+                window.location.href = window.location.origin  + "/dashboard/seats/exam/" + exam_id + '/arrangement'
             })
         })
     </script>

@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * Let's utilize composer's autoload to load our classes so we don't have to worry
  * about loading them, cool to relax right

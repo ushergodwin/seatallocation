@@ -20,6 +20,7 @@ use System\Routes\Route;
 */
 Route::get('/', [Home::class, 'index']);
 Route::get('user/tour', [Home::class, 'tour']);
+Route::get('user/security/password/change', [Home::class, 'changePassword']);
 // auth route
 
 Route::post('api/auth/user', [Auth::class, 'authenticate']);

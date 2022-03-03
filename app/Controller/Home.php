@@ -1,5 +1,7 @@
 <?php
 namespace App\Controller;
+
+use App\Controller\Auth\Auth;
 use App\Controller\BaseController;
 use System\Http\Request;
 use System\Http\Request\Request as HttpRequest;
@@ -79,5 +81,14 @@ class Home extends BaseController
 
             fclose($f);
         }
+    }
+
+    public function changePassword()
+    {
+        Auth::required();
+        $content = [
+            'title' => "Change Password"
+        ];
+        return render('reset_password', $content);
     }
 }

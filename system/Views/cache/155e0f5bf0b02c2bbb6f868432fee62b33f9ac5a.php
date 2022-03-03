@@ -22,7 +22,7 @@
                                 <a href="#examsModal" class="exams" data-toggle="modal"
                                  data-id="<?php echo e($item->id); ?>"
                                  data-sup_name="<?php echo e($item->sup_name); ?>"
-                                 data-url="<?php echo e(url('admin/dashboard/supervisor/'. $item->id .'/exams')); ?>">
+                                 data-url="<?php echo e(url('dashboard/supervisor/'. $item->id .'/exams')); ?>">
                                     <i class="fa fa-eye"></i>
                                     Exams Supervised
                                 </a>

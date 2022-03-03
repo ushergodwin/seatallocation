@@ -25,7 +25,7 @@
                                 </label>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-light w-100 login-btn">LOGIN</button>
+                                <button type="submit" class="btn btn-light login-btn">LOGIN</button>
                             </div>
                         </form>
                     <div class="response"></div>

@@ -3,7 +3,7 @@
  use App\Controller\BaseController;
 use Twilio\Rest\Client;
 
-require BASE_PATH . 'vendor/autoload.php';
+require BASE_PATH . '/vendor/autoload.php';
 
  class SMS extends BaseController 
  { 
