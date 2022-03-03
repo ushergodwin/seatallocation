@@ -1,0 +1,4 @@
+Admin: brianmugumem@gmail.com Password: brianmugumem@gmail.com
+Students: student_number, password: P@ss1234
+Supervisors: mercy.amio@cis.mak.ac.ug, password mercy.amio@cis.mak.ac.ug
+(default password for supervisors is their email, which can later be changed)
